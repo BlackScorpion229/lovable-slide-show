@@ -1,4 +1,3 @@
-
 import { useState, useEffect, useCallback } from 'react';
 import { ChevronLeft, ChevronRight, Play, Pause, RotateCcw } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -7,101 +6,182 @@ const slides = [
   {
     id: 1,
     type: 'title',
-    title: 'Welcome to Our Company',
-    subtitle: 'Innovation • Excellence • Growth',
-    background: 'bg-gradient-to-br from-blue-600 to-purple-700'
-  },
-  {
-    id: 2,
-    type: 'content',
-    title: 'Our Mission',
-    content: 'We strive to deliver exceptional solutions that transform businesses and create lasting value for our clients worldwide.',
-    image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&h=600&fit=crop',
-    background: 'bg-gradient-to-br from-slate-50 to-blue-50'
-  },
-  {
-    id: 3,
-    type: 'stats',
-    title: 'Our Impact',
-    stats: [
-      { label: 'Happy Clients', value: '500+' },
-      { label: 'Projects Completed', value: '1,200+' },
-      { label: 'Team Members', value: '150+' },
-      { label: 'Countries Served', value: '25+' }
-    ],
-    background: 'bg-gradient-to-br from-green-600 to-teal-700'
-  },
-  {
-    id: 4,
-    type: 'video',
-    title: 'See Us In Action',
-    subtitle: 'Watch how we bring ideas to life',
-    videoUrl: 'https://images.unsplash.com/photo-1581090464777-f3220bbe1b8b?w=800&h=600&fit=crop',
-    background: 'bg-gradient-to-br from-gray-900 to-gray-700'
-  },
-  {
-    id: 5,
-    type: 'features',
-    title: 'What Sets Us Apart',
-    features: [
-      { title: 'Innovation', description: 'Cutting-edge solutions for modern challenges' },
-      { title: 'Quality', description: 'Uncompromising standards in every project' },
-      { title: 'Speed', description: 'Rapid delivery without sacrificing excellence' },
-      { title: 'Support', description: '24/7 dedicated customer support' }
-    ],
+    title: 'Welcome to DZ Analytics',
+    subtitle: 'Data • AI • Innovation',
     background: 'bg-gradient-to-br from-orange-500 to-red-600'
   },
   {
-    id: 6,
-    type: 'team',
-    title: 'Meet Our Leadership',
-    team: [
-      { name: 'Sarah Johnson', role: 'CEO & Founder', image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=300&h=300&fit=crop' },
-      { name: 'Michael Chen', role: 'CTO', image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=300&h=300&fit=crop' },
-      { name: 'Emily Rodriguez', role: 'VP of Operations', image: 'https://images.unsplash.com/photo-1649972904349-6e44c42644a7?w=300&h=300&fit=crop' }
+    id: 2,
+    type: 'services',
+    title: 'What We Do?',
+    services: [
+      {
+        number: '1',
+        title: 'Redesign the world through data & AI Innovation',
+        color: 'bg-orange-400',
+        technologies: ['Machine Learning', 'AWS', 'Python', 'PySpark', 'Data Engineering', 'TensorFlow', 'Jupyter', 'SQL']
+      },
+      {
+        number: '2', 
+        title: 'SAP Development & Integration',
+        color: 'bg-orange-500',
+        technologies: ['SAP PI/PO/CPI', 'SAP SD', 'SAP FICO']
+      },
+      {
+        number: '3',
+        title: 'IT Staff Augmentation',
+        color: 'bg-red-600',
+        services: ['Talent Pool Provision', 'Recruitment and Vetting', 'Cost Management', 'Risk Mitigation']
+      }
     ],
-    background: 'bg-gradient-to-br from-purple-600 to-pink-600'
+    background: 'bg-gradient-to-br from-orange-400 to-red-700'
+  },
+  {
+    id: 3,
+    type: 'data-ai',
+    title: 'Data & AI Excellence',
+    categories: [
+      {
+        title: 'Data Engineering Excellence',
+        color: 'bg-orange-400',
+        items: ['Cloud Engineering', 'Master Data Management', 'Modern Data Platform', 'Data Operations & Governance', 'Data as a Service', 'ML Ops']
+      },
+      {
+        title: 'Gen AI & AI Innovation',
+        color: 'bg-orange-500',
+        items: ['Build a Secure, AI-Driven Digital Foundation', 'Business Solutions & Insights', 'Empowering Enterprises with Advanced LLM Tools, Agent Programs & Prompt Engineering']
+      },
+      {
+        title: 'Data Science Consulting',
+        color: 'bg-red-600',
+        items: ['Data Diagnostics', 'Predictive Modeling', 'AI/ML', 'Optimization Systems', 'Statistical Modeling', 'Decision Cultural Transformation', 'Enterprise data Management', 'Dashboards/Reporting']
+      },
+      {
+        title: 'AI Talent',
+        color: 'bg-red-800',
+        items: ['Structured On Job Training (OJT)', 'Mentorship and Coaching Programs', 'Continuous learning opportunities', 'Individual development plans', 'Ensure teams have access to the latest tools and technologies']
+      }
+    ],
+    background: 'bg-gradient-to-br from-orange-400 to-red-800'
+  },
+  {
+    id: 4,
+    type: 'projects-grid',
+    title: 'Key Projects on Data',
+    projectCategories: [
+      {
+        title: 'Customer Analytics',
+        projects: ['Collections Engine', 'Credit Risk Optimizer', 'Bad Debt Model', 'Overdue Forecasting', 'Customer Churn']
+      },
+      {
+        title: 'Logistics & Supply Chain',
+        projects: ['In Transit Predictions', 'Stock Balancing', 'On Time Delivery Analytics', 'Fleet Optimization', 'Inventory Deployment Optimization']
+      },
+      {
+        title: 'Healthcare',
+        projects: ['Disease Prediction', 'Cost Optimization in supply chain', 'Claims Processing Automation']
+      },
+      {
+        title: 'Manufacturing',
+        projects: ['Predictive Maintenance', 'Defect Detection(CNN)', 'Demand Forecasting', 'Energy Consumption optimization']
+      },
+      {
+        title: 'Finance',
+        projects: ['Fraud Detection & prevention', 'Credit Scoring & Risk Assessment', 'Customer Segmentation']
+      },
+      {
+        title: 'E-Commerce',
+        projects: ['Recommendation Systems', 'Dynamic Price Optimization', 'Sentiment Analysis', 'Personalized Email Campaign']
+      },
+      {
+        title: 'Human Resources',
+        projects: ['Resume Screening & Shortlisting', 'HR Chat Bots', 'Attrition Prediction']
+      },
+      {
+        title: 'Legal and Compliance',
+        projects: ['Law GPT', 'Legal Document Summarization']
+      }
+    ],
+    background: 'bg-gradient-to-br from-orange-500 to-red-700'
+  },
+  {
+    id: 5,
+    type: 'engineering-projects',
+    title: 'Data Engineering Projects',
+    engineeringProjects: [
+      {
+        title: 'Hadoop to Azure',
+        description: 'Migration from traditional Hadoop infrastructure to modern Azure cloud services',
+        image: '/lovable-uploads/d25eb646-b55e-4a0b-8f35-eefddcfe67cf.png'
+      },
+      {
+        title: 'Data Provider to Salesforce',
+        description: 'Integration pipeline connecting external data providers with Salesforce CRM',
+        image: '/lovable-uploads/d25eb646-b55e-4a0b-8f35-eefddcfe67cf.png'
+      },
+      {
+        title: 'Real Time Analytics',
+        description: 'Stream processing and real-time data analytics platform',
+        image: '/lovable-uploads/d25eb646-b55e-4a0b-8f35-eefddcfe67cf.png'
+      },
+      {
+        title: 'Enterprise Data Lake',
+        description: 'Scalable data lake architecture for enterprise-wide analytics',
+        image: '/lovable-uploads/d25eb646-b55e-4a0b-8f35-eefddcfe67cf.png'
+      }
+    ],
+    background: 'bg-gradient-to-br from-orange-600 to-red-800'
+  },
+  {
+    id: 6,
+    type: 'partners',
+    title: 'Our Partners',
+    partnerLogos: [
+      { name: 'Microsoft', logo: 'https://images.unsplash.com/photo-1633419461186-7d40a38105ec?w=200&h=100&fit=crop' },
+      { name: 'SAP', logo: 'https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=200&h=100&fit=crop' },
+      { name: 'Amazon AWS', logo: 'https://images.unsplash.com/photo-1523474253046-8cd2748b5fd2?w=200&h=100&fit=crop' },
+      { name: 'Google Cloud', logo: 'https://images.unsplash.com/photo-1573804633927-bfcbcd909acd?w=200&h=100&fit=crop' },
+      { name: 'Snowflake', logo: 'https://images.unsplash.com/photo-1551434678-e076c223a692?w=200&h=100&fit=crop' },
+      { name: 'Databricks', logo: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=200&h=100&fit=crop' }
+    ],
+    background: 'bg-gradient-to-br from-orange-400 to-red-600'
   },
   {
     id: 7,
-    type: 'process',
-    title: 'Our Process',
-    steps: [
-      { number: '01', title: 'Discovery', description: 'Understanding your needs and goals' },
-      { number: '02', title: 'Strategy', description: 'Crafting the perfect solution approach' },
-      { number: '03', title: 'Development', description: 'Building with precision and care' },
-      { number: '04', title: 'Launch', description: 'Delivering excellence on time' }
-    ],
-    background: 'bg-gradient-to-br from-indigo-600 to-blue-700'
+    type: 'team',
+    title: 'Our Cherished Minds',
+    teamImage: '/lovable-uploads/e448b2b0-a6c5-43cb-9c22-7c3751af7c9c.png',
+    subtitle: 'Meet our talented team of data scientists, engineers, and AI specialists',
+    background: 'bg-gradient-to-br from-orange-500 to-red-700'
   },
   {
     id: 8,
-    type: 'testimonial',
-    title: 'What Our Clients Say',
-    quote: '"Working with this team has been transformative for our business. Their attention to detail and innovative approach exceeded all our expectations."',
-    author: 'David Thompson',
-    role: 'CEO, TechCorp Solutions',
-    background: 'bg-gradient-to-br from-emerald-600 to-cyan-600'
+    type: 'process',
+    title: 'Our Process',
+    steps: [
+      { number: '01', title: 'Discovery', description: 'Understanding your data challenges and business goals' },
+      { number: '02', title: 'Strategy', description: 'Designing the optimal data architecture and AI strategy' },
+      { number: '03', title: 'Implementation', description: 'Building robust data pipelines and AI solutions' },
+      { number: '04', title: 'Optimization', description: 'Continuous monitoring and performance enhancement' }
+    ],
+    background: 'bg-gradient-to-br from-orange-600 to-red-800'
   },
   {
     id: 9,
-    type: 'gallery',
-    title: 'Our Recent Projects',
-    images: [
-      'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=400&h=300&fit=crop',
-      'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=400&h=300&fit=crop',
-      'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=400&h=300&fit=crop',
-      'https://images.unsplash.com/photo-1605810230434-7631ac76ec81?w=400&h=300&fit=crop'
-    ],
-    background: 'bg-gradient-to-br from-violet-600 to-purple-700'
+    type: 'testimonial',
+    title: 'Client Success Stories',
+    quote: '"DZ Analytics transformed our data infrastructure and helped us achieve 40% improvement in operational efficiency through their innovative AI solutions."',
+    author: 'Sarah Johnson',
+    role: 'CTO, Tech Innovation Corp',
+    background: 'bg-gradient-to-br from-orange-500 to-red-600'
   },
   {
     id: 10,
     type: 'contact',
-    title: 'Let\'s Build Something Amazing',
-    subtitle: 'Ready to transform your vision into reality?',
-    cta: 'Get Started Today',
-    background: 'bg-gradient-to-br from-rose-600 to-orange-600'
+    title: 'Ready to Transform Your Data?',
+    subtitle: 'Let\'s discuss how we can help you unlock the power of your data',
+    cta: 'Start Your Data Journey',
+    background: 'bg-gradient-to-br from-orange-600 to-red-700'
   }
 ];
 
@@ -172,80 +252,136 @@ const Index = () => {
           </div>
         );
 
-      case 'content':
-        return (
-          <div className={`${baseClasses} text-gray-800`}>
-            <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-              <div className="animate-fade-in">
-                <h2 className="text-3xl md:text-5xl font-bold mb-6">{currentSlideData.title}</h2>
-                <p className="text-lg md:text-xl leading-relaxed">{currentSlideData.content}</p>
-              </div>
-              <div className="animate-fade-in" style={{ animationDelay: '0.3s' }}>
-                <img 
-                  src={currentSlideData.image} 
-                  alt="Company" 
-                  className="w-full h-80 object-cover rounded-lg shadow-2xl"
-                />
-              </div>
-            </div>
-          </div>
-        );
-
-      case 'stats':
+      case 'services':
         return (
           <div className={baseClasses}>
             <h2 className="text-3xl md:text-5xl font-bold mb-12 text-center animate-fade-in">
               {currentSlideData.title}
             </h2>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl">
-              {currentSlideData.stats?.map((stat, index) => (
+            <div className="flex flex-wrap justify-center gap-8 max-w-6xl">
+              {currentSlideData.services?.map((service, index) => (
                 <div 
-                  key={index} 
-                  className="text-center animate-fade-in"
-                  style={{ animationDelay: `${index * 0.2}s` }}
+                  key={index}
+                  className={`${service.color} p-8 rounded-lg shadow-2xl min-w-80 max-w-sm animate-slide-in-left relative`}
+                  style={{ animationDelay: `${index * 0.3}s` }}
                 >
-                  <div className="text-3xl md:text-5xl font-bold mb-2">{stat.value}</div>
-                  <div className="text-sm md:text-lg opacity-90">{stat.label}</div>
+                  <div className="absolute -top-4 left-4 w-12 h-12 bg-white rounded-full flex items-center justify-center text-2xl font-bold text-orange-600">
+                    {service.number}
+                  </div>
+                  <h3 className="text-xl font-bold mt-4 mb-4 text-center">{service.title}</h3>
+                  {service.technologies && (
+                    <div className="flex flex-wrap gap-2 justify-center">
+                      {service.technologies.map((tech, techIndex) => (
+                        <span key={techIndex} className="bg-white/20 px-2 py-1 rounded text-sm">
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+                  {service.services && (
+                    <ul className="space-y-2 text-sm">
+                      {service.services.map((item, itemIndex) => (
+                        <li key={itemIndex} className="opacity-90">• {item}</li>
+                      ))}
+                    </ul>
+                  )}
                 </div>
               ))}
             </div>
           </div>
         );
 
-      case 'video':
-        return (
-          <div className={baseClasses}>
-            <h2 className="text-3xl md:text-5xl font-bold mb-4 text-center animate-fade-in">
-              {currentSlideData.title}
-            </h2>
-            <p className="text-lg md:text-xl mb-8 opacity-90 animate-fade-in" style={{ animationDelay: '0.2s' }}>
-              {currentSlideData.subtitle}
-            </p>
-            <div className="animate-fade-in" style={{ animationDelay: '0.4s' }}>
-              <img 
-                src={currentSlideData.videoUrl} 
-                alt="Video thumbnail" 
-                className="w-full max-w-4xl h-96 object-cover rounded-lg shadow-2xl"
-              />
-            </div>
-          </div>
-        );
-
-      case 'features':
+      case 'data-ai':
         return (
           <div className={baseClasses}>
             <h2 className="text-3xl md:text-5xl font-bold mb-12 text-center animate-fade-in">
               {currentSlideData.title}
             </h2>
-            <div className="grid md:grid-cols-2 gap-8 max-w-4xl">
-              {currentSlideData.features?.map((feature, index) => (
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl">
+              {currentSlideData.categories?.map((category, index) => (
                 <div 
-                  key={index} 
-                  className="bg-white/20 backdrop-blur-sm p-6 rounded-lg animate-fade-in"
+                  key={index}
+                  className={`${category.color} p-6 rounded-lg shadow-2xl animate-fade-in`}
                   style={{ animationDelay: `${index * 0.2}s` }}
                 >
-                  <h3 className="text-xl md:text-2xl font-bold mb-3">{feature.title}</h3>
-                  <p className="opacity-90">{feature.description}</p>
+                  <h3 className="text-lg font-bold mb-4 text-center">{category.title}</h3>
+                  <ul className="space-y-2 text-sm">
+                    {category.items.map((item, itemIndex) => (
+                      <li key={itemIndex} className="opacity-90">• {item}</li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </div>
+        );
+
+      case 'projects-grid':
+        return (
+          <div className={baseClasses}>
+            <h2 className="text-3xl md:text-5xl font-bold mb-12 text-center animate-fade-in">
+              {currentSlideData.title}
+            </h2>
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl">
+              {currentSlideData.projectCategories?.map((category, index) => (
+                <div 
+                  key={index}
+                  className="bg-white/10 backdrop-blur-sm p-6 rounded-lg shadow-xl animate-fade-in"
+                  style={{ animationDelay: `${index * 0.1}s` }}
+                >
+                  <h3 className="text-lg font-bold mb-4 text-center text-orange-200 underline">
+                    {category.title}
+                  </h3>
+                  <ul className="space-y-2 text-sm">
+                    {category.projects.map((project, projectIndex) => (
+                      <li key={projectIndex} className="text-red-200">• {project}</li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </div>
+        );
+
+      case 'engineering-projects':
+        return (
+          <div className={baseClasses}>
+            <h2 className="text-3xl md:text-5xl font-bold mb-12 text-center animate-fade-in">
+              {currentSlideData.title}
+            </h2>
+            <div className="grid md:grid-cols-2 gap-8 max-w-6xl">
+              {currentSlideData.engineeringProjects?.map((project, index) => (
+                <div 
+                  key={index}
+                  className="bg-white/10 backdrop-blur-sm p-6 rounded-lg shadow-xl animate-fade-in hover:scale-105 transition-transform duration-300"
+                  style={{ animationDelay: `${index * 0.2}s` }}
+                >
+                  <h3 className="text-xl font-bold mb-4 text-center">{project.title}</h3>
+                  <p className="text-sm opacity-90 text-center">{project.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        );
+
+      case 'partners':
+        return (
+          <div className={baseClasses}>
+            <h2 className="text-3xl md:text-5xl font-bold mb-12 text-center animate-fade-in">
+              {currentSlideData.title}
+            </h2>
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 max-w-6xl">
+              {currentSlideData.partnerLogos?.map((partner, index) => (
+                <div 
+                  key={index}
+                  className="bg-white/20 backdrop-blur-sm p-4 rounded-lg shadow-lg animate-fade-in hover:scale-110 transition-transform duration-300"
+                  style={{ animationDelay: `${index * 0.1}s` }}
+                >
+                  <img 
+                    src={partner.logo} 
+                    alt={partner.name}
+                    className="w-full h-16 object-contain"
+                  />
                 </div>
               ))}
             </div>
@@ -255,25 +391,18 @@ const Index = () => {
       case 'team':
         return (
           <div className={baseClasses}>
-            <h2 className="text-3xl md:text-5xl font-bold mb-12 text-center animate-fade-in">
+            <h2 className="text-3xl md:text-5xl font-bold mb-8 text-center animate-fade-in">
               {currentSlideData.title}
             </h2>
-            <div className="grid md:grid-cols-3 gap-8 max-w-4xl">
-              {currentSlideData.team?.map((member, index) => (
-                <div 
-                  key={index} 
-                  className="text-center animate-fade-in"
-                  style={{ animationDelay: `${index * 0.2}s` }}
-                >
-                  <img 
-                    src={member.image} 
-                    alt={member.name} 
-                    className="w-32 h-32 rounded-full mx-auto mb-4 object-cover border-4 border-white/50"
-                  />
-                  <h3 className="text-xl font-bold mb-1">{member.name}</h3>
-                  <p className="opacity-90">{member.role}</p>
-                </div>
-              ))}
+            <p className="text-lg md:text-xl mb-8 opacity-90 text-center animate-fade-in" style={{ animationDelay: '0.2s' }}>
+              {currentSlideData.subtitle}
+            </p>
+            <div className="animate-fade-in" style={{ animationDelay: '0.4s' }}>
+              <img 
+                src={currentSlideData.teamImage} 
+                alt="Our Team"
+                className="w-full max-w-4xl h-96 object-cover rounded-lg shadow-2xl"
+              />
             </div>
           </div>
         );
